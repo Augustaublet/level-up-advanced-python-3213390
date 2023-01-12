@@ -1,4 +1,5 @@
-from html2markdown import html2markdown
+from challenge.html2markdown import html2markdown
+
 
 def test_italics():
     html = 'This is in <em>italics</em>. So is <em>this</em>'
@@ -6,11 +7,15 @@ def test_italics():
     actual = html2markdown(html)
     assert actual == expected
 
+
+  
 def test_spaces():
     html = 'This sentence has a    lot of    \ninteresting white spaces.'
     expected = 'This sentence has a lot of interesting white spaces.'
     actual = html2markdown(html)
     assert actual == expected
+
+
 
 def test_single_paragraph():
     html = '<p>This is a paragraph.</p>'
@@ -24,6 +29,8 @@ def test_multiple_paragraphs():
     actual = html2markdown(html)
     assert actual == expected
 
+
+
 def test_urls():
     html = (
             'This is the <a href="https://pypi.org/project/html2markdown/">link</a> to the html2markdown package and '
@@ -35,3 +42,4 @@ def test_urls():
     )
     actual = html2markdown(html)
     assert actual == expected
+
